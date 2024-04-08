@@ -1,0 +1,38 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @upper on FIELD_DEFINITION
+
+type BlogResponseDTO {
+  id: String!
+  title: String!
+  content: String!
+  image: String!
+}
+
+type Query {
+  getBlogs(page: Float!): [BlogResponseDTO!]!
+  getBlogById(id: Float!): BlogResponseDTO!
+}
+
+type Mutation {
+  createBlog(body: BlogRequestDTO!): BlogResponseDTO!
+  updateBlog(id: Float!, body: BlogRequestUpdateDTO!): BlogResponseDTO!
+  deleteBlog(id: Float!): BlogResponseDTO!
+}
+
+input BlogRequestDTO {
+  title: String!
+  content: String!
+  image: Upload!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+input BlogRequestUpdateDTO {
+  title: String!
+  content: String!
+  image: Upload!
+}
